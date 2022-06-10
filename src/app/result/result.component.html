@@ -1,1 +1,7 @@
-<p>result works!</p>
+<ng-container *ngFor="let data of data$ | async">
+    <div class="">
+        <span>{{data.name}}</span>
+        <span>{{data.type}}</span>
+    </div>
+</ng-container>
+

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-filter',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilterComponent implements OnInit {
 
+  private router = inject(Router)
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  getResult(name: string, type: string): void {
+    this.router.navigate(
+      ["/result"],
+      {queryParams: {
+        'name': name,
+        'type': type
+        }
+      }
+    )
+  }
 }
