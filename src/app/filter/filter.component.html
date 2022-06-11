@@ -1,5 +1,8 @@
-<h2>Бренд</h2>
-<input #name type="text">
-<h2>Тип устройства</h2>
-<input #type type="text">
-<button (click)="getResult(name.value, type.value)">Искать</button>
+<div class="container">
+    <h3>Бренд</h3>
+    <input class="field" #name type="text">
+    <h3>Тип устройства</h3>
+    <input class="field" #type type="text">
+    <button class="btn" (click)="getSearch(name.value, type.value)">Искать</button>
+</div>
+

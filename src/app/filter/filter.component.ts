@@ -9,12 +9,13 @@ import {Router} from '@angular/router';
 export class FilterComponent implements OnInit {
 
   private router = inject(Router)
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  getResult(name: string, type: string): void {
+  getSearch(name: string, type: string): void {
     this.router.navigate(
       ["/result"],
       {queryParams: {

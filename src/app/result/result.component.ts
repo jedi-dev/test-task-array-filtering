@@ -24,10 +24,18 @@ export class ResultComponent implements OnInit, OnDestroy {
     this.subscription = this.route.queryParams.subscribe(
       (queryParam) => {
         this.data$ = this.dataService.getData().pipe(
-          map(item => item.filter(e =>
-            e.name === queryParam['name'] &&
-            e.type === queryParam['type']
-          ))
+          map((item, i) => {
+              if (item[i].name.toLowerCase() !== queryParam['name'].toLowerCase() &&
+                  item[i].type.toLowerCase() !== queryParam['type'].toLowerCase()
+              ) {
+                return item
+              }
+              return item.filter(e =>
+                e.name.toLowerCase() === queryParam['name'].toLowerCase() &&
+                e.type.toLowerCase() === queryParam['type'].toLowerCase()
+              )
+            }
+          )
         )
       }
     )
